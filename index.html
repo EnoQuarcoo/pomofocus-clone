@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="pomo-container">
+    <header>
+        <h3> PomoTimer </h3>
+        <hr>
+    </header>
+    <main> 
+        <div id="timer-section">
+            
+            <div id="pomo-titles">
+                <button id="pomodoro-btn">Pomodoro</button>
+                <button id="short-btn">Short break </button>
+                <button>Long break </button>
+            </div>
+    
+            <div id="timer">
+                <h1>25:00</h1>
+            </div>
+            <div id="start-button">
+                <button> START </button>
+            </div>
+        </div>
+
+        <div id="pomo-counter">
+                <h6> #1 </h6>
+        </div>
+
+        <div id="todo-list">
+            <div id="todo-list-title">
+                <h3> Tasks </h3>
+            </div>
+            <hr> 
+            <div class="task-card">
+                <label>
+                    <input type="checkbox" /> 
+                    <span> Eat </span> 
+                </label>
+                <button> delete </button>
+            </div>
+            <div class="task-card">
+                <label>
+                    <input type="checkbox" /> 
+                    <span> Code </span> 
+                </label>
+                <button id="delete-btn"> delete </button>
+            </div>
+            <div id="add-task" class="task-card">
+                <button> Add Task </button>
+            </div>
+        </div>
+
+        <div class="modal hidden ">
+            <div class="modal-content">
+                <label> 
+                <input type="text" /> 
+                </label>
+                <div class="modal-buttons">
+                    <button id="cancel-btn"> Cancel </button>
+                    <button id="save-btn"> Save </button>
+                </div>
+            </div>
+        </div>
+</div>
+
+    <script src="main.js"></script>
+    </main>
+</body>
+</html>
