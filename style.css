@@ -58,6 +58,7 @@ header hr{
   width: 100%;
 }
 
+
 #pomo-titles button {
   background-color: transparent;
   border: none;
@@ -66,6 +67,14 @@ header hr{
   font-size: clamp(1rem, 1.5vw, 1.5rem);
   
 }
+
+#pomo-titles button.clicked {
+  background-color: rgb(186, 73, 73, 1.5 );
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 8px;
+}
+
 
 #timer h1{
   font-size: clamp(6.5rem, 14vw, 8rem);
@@ -81,6 +90,10 @@ header hr{
   color: rgb(186, 73, 73);
   padding: 0.5rem 2.5rem;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)
+}
+
+#start-button.clicked {
+  box-shadow: 0;
 }
 
 #pomo-counter {
@@ -150,4 +163,5 @@ hr {
   gap: 1rem;
   justify-content: space-between;
 }
+
 
