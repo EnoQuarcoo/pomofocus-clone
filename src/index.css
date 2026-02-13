@@ -96,7 +96,7 @@ header hr{
   box-shadow: 0;
 }
 
-#pomo-counter {
+.pomo-counter {
   font-size: clamp(1.2rem, 2vw, 3rem);
   color: #eeeeee;
   font-weight: 100;
@@ -109,7 +109,7 @@ header hr{
   margin: 0 auto;
 }
 
-#todo-list-title{
+.todo-list-title{
   color: white;
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -140,7 +140,7 @@ hr {
   
 }
 
-#add-task button{
+.add-task button{
   background: none;
   border: none;
   cursor: pointer;
@@ -149,7 +149,7 @@ hr {
   
 }
 
-#add-task {
+.add-task {
   display: flex; 
   justify-content: center;
   border: dashed #eeeeee;
