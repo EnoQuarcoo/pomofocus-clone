@@ -4,22 +4,36 @@ import { useState } from 'react';
 const Timer = () => {
   //State to remember which button has been clicken 
   const [mode, setMode] = useState("pomodoro");
+  const [secondsLeft, setSecondsLeft] = useState(1500);
 
   function handlePomodoroMode() {
     setMode("pomodoro");
+    setSecondsLeft(1500);
     console.log('Mode is pomo')
   }
 
   function handleShortMode() {
     setMode("short");
-    console.log('Mode is ', mode)
+    setSecondsLeft(300);
+    console.log('Mode is ', mode);
   }
 
   function handleLongMode() {
     setMode("long");
+    setSecondsLeft(900); 
     console.log('Mode is long')
     
   }
+
+  function convertSecondsToMinutes(totalseconds){
+    const dateObj = new Date(totalseconds * 1000);
+    const minutes = dateObj.getUTCMinutes();
+    const seconds = dateObj.getSeconds(); 
+    const timeString = minutes.toString() + ":" + seconds.toString().padStart(2, '0');
+    return timeString;
+  }
+
+
 
 
  
@@ -32,7 +46,8 @@ const Timer = () => {
         <button className={mode==="long"? "long-btn clicked" : "long-btn"} onClick={handleLongMode}>Long break </button>
       </div>
       <div className="timer">
-        <h1>25:00</h1>
+       
+        <h1>{convertSecondsToMinutes(secondsLeft)}</h1>
       </div>
       <div className="start-button" >
         <button> START </button>
@@ -46,5 +61,4 @@ export default Timer;
 
 //In react local variables don't persist between renders so if you want a componenet to remember something yuou give it a state. 
 //Here are my steps. 
-// 1. I define useState and set its initial value to the string pomodoro 
-// I create a function (handleModeSwitch) to help it switch between the different mode options ("pomodoro", "long", 'short')
+// 1. create a state timeleft 
