@@ -2,25 +2,30 @@ import React from "react";
 import { useState } from 'react';
 
 const Timer = () => {
-  //State to remember which button has been clicken 
-  const [mode, setMode] = useState("pomodoro");
+  //Mode tells which timer the user selected - pomodoro, long or short 
+  const [mode, setMode] = useState("pomodoro"); 
+  //Calculae the seconds left based on the selected mode
   const [secondsLeft, setSecondsLeft] = useState(1500);
+  const [isRunning, setIsRunning] = useState(false);
 
   function handlePomodoroMode() {
     setMode("pomodoro");
     setSecondsLeft(1500);
+    setIsRunning(false);
     console.log('Mode is pomo')
   }
 
   function handleShortMode() {
     setMode("short");
     setSecondsLeft(300);
+    setIsRunning(false);
     console.log('Mode is ', mode);
   }
 
   function handleLongMode() {
     setMode("long");
     setSecondsLeft(900); 
+    setIsRunning(false);
     console.log('Mode is long')
     
   }
@@ -33,10 +38,18 @@ const Timer = () => {
     return timeString;
   }
 
+  function decreaseTime(previous){
+    return previous - 1
+  }
+  function startTimer(){
+    setIsRunning(true);
+    setInterval(setSecondsLeft(decreaseTime), 1000);
+    console.log("time left is ", convertSecondsToMinutes(secondsLeft) )
+  }
+
+  //Every second, reduce the number of seconds left. 
 
 
-
- 
 
   return (
     <div className="timer-section">
@@ -46,11 +59,10 @@ const Timer = () => {
         <button className={mode==="long"? "long-btn clicked" : "long-btn"} onClick={handleLongMode}>Long break </button>
       </div>
       <div className="timer">
-       
         <h1>{convertSecondsToMinutes(secondsLeft)}</h1>
       </div>
       <div className="start-button" >
-        <button> START </button>
+        <button onClick={startTimer}> {isRunning ? <>PAUSE </>: <>START </>} </button>
       </div>
     </div>
   );
