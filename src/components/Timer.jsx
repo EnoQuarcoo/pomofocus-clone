@@ -10,21 +10,21 @@ const Timer = () => {
 
   function handlePomodoroMode() {
     setMode("pomodoro");
-    setSecondsLeft(1500);
+    setSecondsLeft(150);
     setIsRunning(false);
     console.log("Mode is pomo");
   }
 
   function handleShortMode() {
     setMode("short");
-    setSecondsLeft(300);
+    setSecondsLeft(30);
     setIsRunning(false);
     console.log("Mode is ", mode);
   }
 
   function handleLongMode() {
     setMode("long");
-    setSecondsLeft(900);
+    setSecondsLeft(90);
     setIsRunning(false);
     console.log("Mode is long");
   }
@@ -38,6 +38,14 @@ const Timer = () => {
     return timeString;
   }
 
+  function toggleTimer() {
+    if (isRunning){
+        stopTimer()
+    }
+    else {
+      startTimer()
+    }
+  }
   function startTimer() {
     setIsRunning(true);
   }
@@ -96,9 +104,10 @@ const Timer = () => {
         <h1>{convertSecondsToMinutes(secondsLeft)}</h1>
       </div>
       <div className="start-button">
-        <button onClick={startTimer}>
+        <button onClick={toggleTimer}>
           {" "}
           {isRunning ? <>PAUSE </> : <>START </>}{" "}
+          
         </button>
       </div>
     </div>

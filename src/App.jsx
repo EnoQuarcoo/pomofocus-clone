@@ -4,6 +4,8 @@ import Timer from './components/Timer'
 import Pomocounter from './components/Pomocounter'
 import NavBar from './components/NavBar'
 
+
+
 function App() {
 
   return (
@@ -11,6 +13,7 @@ function App() {
       <NavBar></NavBar>
       <Timer></Timer>
       <Pomocounter></Pomocounter>
+      
     </>
   )
 }
