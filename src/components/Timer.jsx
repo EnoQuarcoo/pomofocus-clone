@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import pomo_app_alarm from "../assets/pomo_app_alarm.mp3";
 
 const Timer = () => {
   //Mode tells which timer the user selected - pomodoro, long or short
@@ -39,11 +40,10 @@ const Timer = () => {
   }
 
   function toggleTimer() {
-    if (isRunning){
-        stopTimer()
-    }
-    else {
-      startTimer()
+    if (isRunning) {
+      stopTimer();
+    } else {
+      startTimer();
     }
   }
   function startTimer() {
@@ -53,7 +53,6 @@ const Timer = () => {
   function stopTimer() {
     setIsRunning(false);
   }
-
 
   useEffect(() => {
     if (!isRunning) return;
@@ -74,6 +73,20 @@ const Timer = () => {
   //Every second, reduce the number of seconds left.
 
   //Think of useEffect as a "When X happens, do Y" listener.
+
+  //Initialize an instance of Audio
+  const alarm = new Audio(pomo_app_alarm);
+
+  //Define arrow function
+  const soundAlarm = () => {
+    alarm.play();
+  };
+
+  useEffect(() => {
+    if (secondsLeft === 0) {
+      soundAlarm();
+    }
+  }, [secondsLeft]);
 
   return (
     <div className="timer-section">
@@ -107,9 +120,9 @@ const Timer = () => {
         <button onClick={toggleTimer}>
           {" "}
           {isRunning ? <>PAUSE </> : <>START </>}{" "}
-          
         </button>
       </div>
+      
     </div>
   );
 };
