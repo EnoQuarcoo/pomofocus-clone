@@ -6,28 +6,28 @@ const Timer = () => {
   //Mode tells which timer the user selected - pomodoro, long or short
   const [mode, setMode] = useState("pomodoro");
   //Calculae the seconds left based on the selected mode
-  const [secondsLeft, setSecondsLeft] = useState(1500);
+  const [secondsLeft, setSecondsLeft] = useState(15000);
   const [isRunning, setIsRunning] = useState(false);
 
   function handlePomodoroMode() {
     setMode("pomodoro");
-    setSecondsLeft(150);
+    setSecondsLeft(1500);
     setIsRunning(false);
-    console.log("Mode is pomo");
+    //console.log("Mode is pomo");
   }
 
   function handleShortMode() {
     setMode("short");
-    setSecondsLeft(30);
+    setSecondsLeft(300);
     setIsRunning(false);
-    console.log("Mode is ", mode);
+    //console.log("Mode is ", mode);
   }
 
   function handleLongMode() {
     setMode("long");
-    setSecondsLeft(90);
+    setSecondsLeft(900);
     setIsRunning(false);
-    console.log("Mode is long");
+    //console.log("Mode is long");
   }
 
   function convertSecondsToMinutes(totalseconds) {
@@ -88,6 +88,8 @@ const Timer = () => {
     }
   }, [secondsLeft]);
 
+
+
   return (
     <div className="timer-section">
       <div className="pomo-titles">
@@ -122,7 +124,6 @@ const Timer = () => {
           {isRunning ? <>PAUSE </> : <>START </>}{" "}
         </button>
       </div>
-      
     </div>
   );
 };
